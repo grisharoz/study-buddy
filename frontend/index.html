@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Buddy</title>
+
+</head>
+<body>
+
+<div class="app">
+
+
+  <div class="header">
+    <div>
+      <div class="title">Study Buddy</div>
+      <div class="subtitle">Klausuren Countdown</div>
+    </div>
+  </div>
+
+    <div class="stats-row">
+    <div class="stat-box">
+        <div class="stat-val" id="st-total">0</div>
+        <div class="stat-lbl">total</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" id="st-panic">0</div>
+        <div class="stat-lbl">panic</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-val" id="st-done">0</div>
+        <div class="stat-lbl">done</div>
+    </div>
+</div>
+
+  <div class="form-card">
+    <input id="inp-module" type="text" placeholder="Modul" class="glass-input" />
+    <div class="form-row">
+      <input id="inp-date" type="date" class="glass-input" />
+      <select id="inp-diff" class="glass-input">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Difficult</option>
+      </select>
+    </div>
+      <button id="submit-btn" onclick="handleSubmit()" class="btn-add">Add Exam</button>
+      <button id="cancel-btn" onclick="cancelEdit()" class="btn-cancel" style="display:none">Cancel</button>
+  </div>
+
+  <div id="exams-list"></div>
+
+    <div id="tutorial" class="overlay">
+    <div class="modal-box">
+        <div class="modal-icon">📚</div>
+        <h2 class="modal-title">Welcome to Study Buddy!</h2>
+        <div class="tutorial-steps">
+            <div class="tutorial-step">
+                <span class="step-num">01</span>
+                <div>
+                    <div class="step-title">Add your exam</div>
+                    <div class="step-desc">Enter module name, date and difficulty</div>
+                </div>
+            </div>
+            <div class="tutorial-step">
+                <span class="step-num">02</span>
+                <div>
+                    <div class="step-title">Track your progress</div>
+                    <div class="step-desc">Progress bar shows how much prep time is left</div>
+                </div>
+            </div>
+            <div class="tutorial-step">
+                <span class="step-num">03</span>
+                <div>
+                    <div class="step-title">Panic mode</div>
+                    <div class="step-desc">Easy: 3 days · Medium: 5 days · Hard: 7 days before exam</div>
+                </div>
+            </div>
+        </div>
+        <button onclick="closeTutorial()" class="btn-start">Let's go! →</button>
+        <div class="modal-hint" onclick="closeTutorial()">don't show again</div>
+    </div>
+</div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
