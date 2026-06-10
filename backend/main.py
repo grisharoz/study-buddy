@@ -6,9 +6,9 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],      # ← разрешить все адреса
-    allow_methods=["*"],      # ← разрешить все методы
-    allow_headers=["*"],      # ← разрешить все заголовки
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 init_db()
 

@@ -18,7 +18,7 @@ let currentEditId = null;
         async function deleteExam(id) {
     try {
         await fetch(`${API}/exams/${id}`, { method: 'DELETE' });
-        loadExams();  // ← только если удаление прошло успешно
+        loadExams();
     } catch (error) {
         console.error('Failed to delete exam:', error);
         document.getElementById('exams-list').innerHTML =
@@ -58,10 +58,10 @@ function barClass(pct, isPanic) {
 }
 
 function editExam(id, module, date, diff) {
-    currentEditId =id;                                    // ← сохрани id
-    document.getElementById('inp-module').value = module;     // ← вставь module
-    document.getElementById('inp-date').value =date;       // ← вставь date
-    document.getElementById('inp-diff').value =diff;       // ← вставь diff
+    currentEditId =id;
+    document.getElementById('inp-module').value = module;
+    document.getElementById('inp-date').value =date;
+    document.getElementById('inp-diff').value =diff;
     document.getElementById('submit-btn').textContent = 'Save Changes';
     document.getElementById('cancel-btn').style.display = 'block';
 }
@@ -73,7 +73,7 @@ async function handleSubmit() {
 
 
     if (module === '') {
-        document.getElementById('inp-module').style.borderColor = 'var(--danger)'; // ← цвет danger
+        document.getElementById('inp-module').style.borderColor = 'var(--danger)';
         setTimeout(() => {
             document.getElementById('inp-module').style.borderColor = '';
         }, 2000);
@@ -81,11 +81,11 @@ async function handleSubmit() {
     }
 
     if (date === '') {
-        document.getElementById('inp-date').style.borderColor = 'var(--danger)'; // ← цвет danger
+        document.getElementById('inp-date').style.borderColor = 'var(--danger)';
         setTimeout(() => {
             document.getElementById('inp-date').style.borderColor = '';
         }, 2000);
-        return;  // ← выходим, fetch не вызывается
+        return;
     }
     try {
         if (currentEditId === null) {
@@ -117,8 +117,8 @@ function cancelEdit() {
     document.getElementById('inp-module').value = '';
     document.getElementById('inp-date').value = '';
     document.getElementById('inp-diff').value = 'easy';
-    document.getElementById('submit-btn').textContent = 'Add Exam';    // ← что написать?
-    document.getElementById('cancel-btn').style.display = 'none';  // ← скрыть кнопку
+    document.getElementById('submit-btn').textContent = 'Add Exam';
+    document.getElementById('cancel-btn').style.display = 'none';
 }
 
 function closeTutorial() {
