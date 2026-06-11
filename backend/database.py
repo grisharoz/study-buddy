@@ -11,6 +11,7 @@ def init_db():
     diff TEXT NOT NULL,
     created_at TEXT DEFAULT CURRENT_TIMESTAMP
     ) """)
+
     # Migration: add username column if missing
     cursor.execute("PRAGMA table_info(exams)")
     columns = [col[1] for col in cursor.fetchall()]

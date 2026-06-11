@@ -100,8 +100,7 @@ async function handleSubmit() {
       }, 2000);
       return;
   }
-  try {
-      const user = getUsername();
+  try {const user = getUsername();
       if (currentEditId === null) {
           await fetch(`${API}/exams?user=${encodeURIComponent(user)}`, {
               method: 'POST',
