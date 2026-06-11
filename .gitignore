@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment
+.venv/
+venv/
+.env
+
+# Database
+*.db
+*.sqlite3
+backend/study_buddy.db
+
+# IDEs
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# Others
+*.swp
+
