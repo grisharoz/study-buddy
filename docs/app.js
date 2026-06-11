@@ -1,5 +1,5 @@
 let currentEditId = null;
-const API = 'https://study-buddy-production-d279.up.railway.app';
+const API = 'http://127.0.0.1:8000';
 
 // Username management
 function getUsername() { return localStorage.getItem('study_buddy_user'); }
