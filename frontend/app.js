@@ -1,5 +1,5 @@
 let currentEditId = null;
-        const API = 'http://127.0.0.1:8000';
+        const API = 'https://study-buddy-production-d279.up.railway.app';
 
         async function loadExams() {
           try {
