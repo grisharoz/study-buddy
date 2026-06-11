@@ -29,6 +29,9 @@ body {
 
 .header {
     margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .title {
     font-size: 20px;
@@ -299,3 +302,31 @@ body {
     font-family: 'JetBrains Mono', monospace;
 }
 .modal-hint:hover { color: var(--text-primary); }
+.user-badge {
+    font-size: 12px;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-logout {
+    background: none;
+    border: 1px solid rgba(226,75,74,0.5);
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: var(--danger);
+    font-size: 11px;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-logout:hover {
+    background: rgba(226,75,74,0.1);
+    border-color: var(--danger);
+}
+#auth-overlay {
+    z-index: 1000;
+}
