@@ -1,56 +1,49 @@
 # Study Buddy
 
-Study Buddy is a simple time management and exam preparation tracking tool.
+Exam preparation tracker with progress visualization and panic mode alerts.
 
-The repository contains a FastAPI backend and a static frontend (HTML/CSS/JS) located in the `docs/` directory.
+## Stack
 
-Key files
-- `backend/main.py` — FastAPI API (CRUD operations for exams)
-- `backend/database.py` — SQLite helper
-- `backend/requirements.txt` — Backend dependencies
-- `docs/` — Frontend (index.html, app.js, styles.css)
+- **Backend**: FastAPI (Python 3.11) + SQLite
+- **Frontend**: Vanilla HTML, CSS, JS
+- **Deployment**: Railway (API), GitHub Pages (frontend)
 
+## Features
 
+- Multi-user support (username-based sessions stored in localStorage)
+- CRUD for exams (module, date, difficulty)
+- Preparation progress bar with color coding (green → amber → red)
+- Panic mode — exam cards glow red when time is low (easy: 3d, medium: 5d, hard: 7d)
+- Stats overview: total exams, panic count, completed
+- Animated onboarding tutorial
 
-Quick start (local)
+## API
 
-1) Navigate to the backend folder and create a virtual environment:
+All endpoints require a `?user=` query parameter.
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/exams?user={name}` | List exams for user |
+| POST | `/exams?user={name}` | Create exam (JSON: `module`, `date`, `diff`) |
+| PUT | `/exams/{id}?user={name}` | Update exam |
+| DELETE | `/exams/{id}?user={name}` | Delete exam |
+
+## Quick Start
 
 ```zsh
-cd /Users/macbookair/Desktop/study-buddy/backend
+cd backend
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-2) Start the server:
-
-```zsh
 uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-3) Open the frontend:
-- Simple method: Open `docs/index.html` in your browser (if the frontend uses relative API paths, ensure the API address matches).
-- Recommended method: Serve static files using a simple server, for example:
+Open `docs/index.html` in a browser or serve via:
 
 ```zsh
-# from the project root
 python3 -m http.server 5500 --directory docs
-# then open http://127.0.0.1:5500
 ```
 
-Environment variables
-- `DB_PATH` — Path to the SQLite file (default: `study_buddy.db`). Removing `.idea/` from the repository (if already committed)
+## Environment
 
-```zsh
-# add .idea/ to .gitignore (already done)
-git rm -r --cached .idea
-git commit -m "Remove .idea from repository"
-git push
-```
-
-API (main endpoints)
-- GET /exams — list of exams
-- POST /exams — create (JSON: module, date(YYYY-MM-DD), diff)
-- PUT /exams/{id} — update
-- DELETE /exams/{id} — delete
+- `DB_PATH` — path to SQLite file (default: `study_buddy.db`)
